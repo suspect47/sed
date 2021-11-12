@@ -22,3 +22,6 @@ grep -A 9 "fgg-streaming-service" docker-compose.yaml -m 1 | grep ":80" | awk {'
 
 basename smartlogger/cloudsal/backend/services/tenantservice/cloudsal-tenant-service:9.2.8.43163 | sed 's/^[^0-9]*//' | sed 's/\./ /g' | rev | awk '{print $1}' | rev
 43163
+--------------------------------------------------------------------------------------------------------------------
+вытащить номер версии (9.2.8)
+echo "smartlogger/cloudsal/backend/services/tenantservice/cloudsal-tenant-service:9.2.8.43163" | sed 's/^[^0-9]*//' | sed 's/\./ /g' | rev | sed -r 's/\S+//1' | cut -c 2- | rev | tr " " "."
